@@ -1,0 +1,33 @@
+# app.yaml
+runtime: custom # Indica que usaremos un Dockerfile personalizado
+env: flex       # Usaremos el entorno flexible de App Engine
+
+# Define los recursos que tu instancia de VM necesitará
+resources:
+  cpu: 1
+  memory_gb: 0.5 # Ajusta según las necesidades de tu aplicación
+  disk_size_gb: 10
+
+# Variables de entorno para tu aplicación PHP
+env_variables:
+  # El Cloud SQL Proxy hace que la base de datos sea accesible en 127.0.0.1 (localhost)
+  DB_HOST: "127.0.0.1"
+  DB_USER: "dev-jesus-zapata"           # Usuario de tu base de datos Cloud SQL
+  DB_PASSWORD: "r+fo_n&:*-nd@qLd"    # Contraseña de tu base de datos Cloud SQL
+  DB_NAME: "nexura-bd"          # Nombre de tu base de datos
+
+# Configuración BETA para Cloud SQL Proxy
+# Esto le dice a App Engine que inyecte el Cloud SQL Proxy automáticamente
+beta_settings:
+  cloud_sql_instances: "potent-impulse-415917:us-central1:nexura-mysql-db" # EJEMPLO: "my-gcp-project-12345:us-central1:my-mysql-instance"
+
+# Puedes añadir configuraciones de red, escalado, etc. aquí si lo necesitas
+# network:
+#   name: default # O tu red VPC personalizada
+#   subnetwork_name: default # O tu subred personalizada
+
+# Para escalado automático (opcional, pero recomendado)
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 5
+  cool_down_period_sec: 120
