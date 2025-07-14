@@ -15,37 +15,44 @@ if (!isset($empleados)) {
     <?php if (empty($empleados)): ?>
         <p>No hay empleados registrados. ¡Crea uno nuevo!</p>
     <?php else: ?>
-        <table>
-            <thead>
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Sexo</th>
+                <th>Área</th>
+                <th>Boletín</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($empleados as $empleado): ?>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Sexo</th>
-                    <th>Área</th>
-                    <th>Boletín</th>
-                    <th>Acciones</th>
+                    <td><?php echo htmlspecialchars($empleado['nombre']); ?></td>
+                    <td><?php echo htmlspecialchars($empleado['email']); ?></td>
+                    <td><?php echo htmlspecialchars($empleado['sexo'] == 'M' ? 'Masculino' : 'Femenino'); ?></td>
+                    <td><?php echo htmlspecialchars($empleado['area_nombre']); ?></td>
+                    <td><?php echo htmlspecialchars($empleado['boletin'] == 1 ? 'Sí' : 'No'); ?></td>
+                    <td class="actions">
+                        <a href="index.php?action=edit&id=<?php echo $empleado['id']; ?>" class="button button-edit">Modificar</a>
+                        <a href="index.php?action=delete&id=<?php echo $empleado['id']; ?>" class="button button-delete" onclick="return confirm('¿Estás seguro de que quieres eliminar a este empleado?');">Eliminar</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($empleados as $empleado): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($empleado['nombre']); ?></td>
-                        <td><?php echo htmlspecialchars($empleado['email']); ?></td>
-                        <td><?php echo htmlspecialchars($empleado['sexo'] == 'M' ? 'Masculino' : 'Femenino'); ?></td>
-                        <td><?php echo htmlspecialchars($empleado['area_nombre']); ?></td>
-                        <td><?php echo htmlspecialchars($empleado['boletin'] == 1 ? 'Sí' : 'No'); ?></td>
-                        <td class="actions">
-                            <a href="index.php?action=edit&id=<?php echo $empleado['id']; ?>" class="button button-edit">Modificar</a>
-                            <a href="index.php?action=delete&id=<?php echo $empleado['id']; ?>" class="button button-delete" onclick="return confirm('¿Estás seguro de que quieres eliminar a este empleado?');">Eliminar</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
     <?php endif; ?>
 </div>
 
 <style>
+.table-responsive {
+    width: 100%
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
 .container {
     max-width: 900px;
     margin: 20px auto;
