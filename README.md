@@ -21,4 +21,4 @@ Esta aplicación está desplegada en Google Cloud Platform (GCP) utilizando Goog
 
 [Haz clic aquí para acceder a la aplicación](https://app-nexura-dot-potent-impulse-415917.uc.r.appspot.com) 
 
-Nota Importante sobre la Base de Datos: Para optimizar mis costos operativos, la base de datos en la nube estará activa durante las horas de la mañana. Si experimentas algún problema de conexión al acceder a la aplicación fuera de este horario o en cualquier otro momento, por favor, no dudes en contactarme para que pueda activarla de inmediato. Agradezco tu comprensión.
+Nota Importante sobre la Base de Datos: Para optimizar mis costos operativos, la base de datos en la nube estará activa durante las horas de la mañana. Si experimentas algún problema de conexión al acceder a la aplicación fuera de este horario o en cualquier otro momento, por favor, no dudes en contactarme para que pueda activarla de inmediato (jesuszapataromero@gmail.com). Agradezco tu comprensión.
